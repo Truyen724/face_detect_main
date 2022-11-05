@@ -8,20 +8,16 @@ from facenet_pytorch import InceptionResnetV1
 # import tensorflow as tf
 import time 
 import torch
-# import tensorflow as tf
-# from tensorflow.keras.models import load_model
-import pickle
+
 import cv2
 import numpy as np
 import cv2
-from torchvision import transforms
+
 from align_faces import warp_and_crop_face, get_reference_facial_points
 from mtcnn.detector import MtcnnDetector
-from sklearn.metrics.pairwise import cosine_similarity
+
 detector = MtcnnDetector()
-from sklearn.metrics.pairwise import euclidean_distances
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-print(device)
+
 def mask_detect(image):
     img = image.copy()
     (h,w) = image.shape[:2]
